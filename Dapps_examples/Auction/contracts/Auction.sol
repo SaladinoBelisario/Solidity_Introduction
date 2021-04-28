@@ -66,9 +66,9 @@ contract Auction {
                 details of the number of tokens remaining with the bidder.
         */
         // ** Start code here. 2 lines approximately. **/
-        require(tokenDetails[msg.sender].remainingTokens < _count);
-        require(tokenDetails[msg.sender].remainingTokens == 0);
-        require(_itemId > 2);
+        if (tokenDetails[msg.sender].remainingTokens < _count ) { revert();}
+        if (tokenDetails[msg.sender].remainingTokens == 0 )     { revert();}
+        if ( _itemId > 2 )                                      { revert();}
         //** End code here. **
         /*Part 1 Task 5.Decrement the remainingTokens by the number of tokens bid
             Hint. "tokenDetails[msg.sender].remainingTokens" should be decremented by "_count".*/
